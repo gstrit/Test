@@ -33,7 +33,7 @@
           "type": "string"
         }
       },
-      "required": ["id", "firstname", "lastname", "email"]
+      "required": ["id", "firstname"]
     }
   },
   "required": ["id", "command", "payload"]

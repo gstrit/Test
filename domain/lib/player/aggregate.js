@@ -1,5 +1,5 @@
 module.exports = require('cqrs-domain').defineAggregate({
-  name: 'players',
+  name: 'player',
   version: 0,
   defaultCommandPayload: 'payload',
   defaultEventPayload: 'payload'
