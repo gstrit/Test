@@ -1,0 +1,38 @@
+{
+  "title": "createPlayer",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "command": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+          
+        "firstname": {
+          "type": "string"
+        },
+        "lastname": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "fftNumber": {
+          "type": "string"
+        },
+        "birthday": {
+          "type": "date"
+        },
+        "company": {
+          "type": "string"
+        }
+      },
+      "required": ["firstname"]
+    }
+  },
+  "required": ["id", "command", "payload"]
+}

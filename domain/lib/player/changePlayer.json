@@ -1,0 +1,40 @@
+{
+  "title": "changePlayer",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "command": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstname": {
+          "type": "string"
+        },
+        "lastname": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "fftNumber": {
+          "type": "string"
+        },
+        "birthday": {
+          "type": "date"
+        },
+        "company": {
+          "type": "string"
+        }
+      },
+      "required": ["id", "firstname", "lastname", "email"]
+    }
+  },
+  "required": ["id", "command", "payload"]
+}
