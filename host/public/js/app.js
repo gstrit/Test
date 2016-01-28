@@ -154,7 +154,9 @@
                 });
 
                 // emit it
-                cmd.emit();
+                cmd.emit(function(event) {
+                    
+                });
             }
         },
 
@@ -200,12 +202,15 @@
                 // CQRS command
                 var cmd = new Backbone.CQRS.Command({
                     id:_.uniqueId('msg'),
+                    commandId: _.uniqueId('commandId'), 
                     command: 'createPlayer',
                     payload: { firstname: playerText }
                 });
 
                 // emit it
-                cmd.emit();
+                cmd.emit(function(event) {
+                    alert('a');
+                });
             }
 
             this.$('#newPlayerText').val('');

@@ -3,5 +3,4 @@ module.exports = require('cqrs-domain').defineEvent({
 },
 function (data, aggregate) {
     aggregate.set(data);
-    //aggregate.get('players').push(data);
 });
