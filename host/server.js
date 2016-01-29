@@ -102,7 +102,7 @@ viewmodel.read(options.repository, function(err, repository) {
         });
 
         // START LISTENING
-        var port = 3000;
+        var port = 8080;
         console.log(colors.cyan('\nStarting server on port ' + port));
         server.listen(port);
     });
