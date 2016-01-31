@@ -55,5 +55,4 @@ module.exports = {
         evtSubscriptions.push(callback);
         console.log(colors.blue('hub -- event subscribers: ' + evtSubscriptions.length));
     }
-
 };

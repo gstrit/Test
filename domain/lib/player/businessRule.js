@@ -5,6 +5,9 @@ module.exports = require('cqrs-domain').defineBusinessRule({
   name: 'checkForError'
 }, function (changed, previous, events, command, callback) {
   
+  if(command.command == 'deletePlayer')
+    return callback(null);
+  
   viewmodel.read({
         type: 'mongodb',
         host: 'localhost',                         

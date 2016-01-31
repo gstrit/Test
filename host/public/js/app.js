@@ -36,21 +36,36 @@
     // Wire up communication to/from server
     // ------------------------------------
 
-    // create a socket.io connection
-    var socket = io.connect('http://localhost:3000');
-    
-    // on receiving an event from the server via socket.io 
-    // forward it to backbone.CQRS.hub
-    socket.on('events', function(evt) {
-        Backbone.CQRS.hub.emit('events', evt);
-    });
+    // // create a socket.io connection
+    // var socket = io.connect('http://localhost:3000');
+    // 
+    // // on receiving an event from the server via socket.io 
+    // // forward it to backbone.CQRS.hub
+    // socket.on('events', function(evt) {
+    //     Backbone.CQRS.hub.emit('events', evt);
+    // });
 
     // forward commands to server via socket.io
-    Backbone.CQRS.hub.on('commands', function(cmd) {
-        socket.emit('commands', cmd);
+    Backbone.CQRS.hub.on('commands', function(cmd) {        
+        sendCommand(cmd, function (data, jwres){
+            Backbone.CQRS.hub.emit('events', data);
+        });
+        
+        //socket.emit('commands', cmd);
     });
-
-
+    
+    
+    function sendCommand(command, callback) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                callback(xhttp.responseText);
+            }
+        };
+        xhttp.open("POST", "http://localhost:8080/command", true);
+        xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhttp.send('{"command":'+ JSON.stringify(command)+'}');
+    }
 
     // Create a few EventDenormalizers
     // -------------------------------
