@@ -21,12 +21,6 @@ module.exports = {
                 timeout: 10000    
             }
         });
-        
-        domain.extendValidator(function (validator) {
-
-                return require('cqrs-domain').defaultValidator;
-            
-        });
 
         domain.defineCommand({
             id: 'id',
