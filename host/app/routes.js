@@ -19,7 +19,7 @@ exports.actions = function(app, options, repository) {
         playerRepo.find(function(err, players) {
             if (err) res.json({});
             
-            res.setHeader('Cache-Control', 'max-age=1');
+            res.set('Cache-Control', 'max-age=1');
             res.json(players);
         });
     });
