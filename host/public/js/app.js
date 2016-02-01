@@ -17,8 +17,8 @@
     // collection
     var Players = Backbone.Collection.extend({
         model: Player,
-        url: '/allPlayers.json'
-         //url: 'http://www.ideomail.com/allPlayers.json'
+        //url: '/allPlayers.json'
+         url: 'http://www.ideomail.com/allPlayers.json'
     });
 
     var players = new Players();
@@ -63,8 +63,8 @@
                 callback(xhttp.responseText);
             }
         };
-        xhttp.open("POST", "http://localhost:8080/command", true);
-        //xhttp.open("POST", "http://www.ideomail.com/command", true);
+        //xhttp.open("POST", "http://localhost:8080/command", true);
+        xhttp.open("POST", "http://www.ideomail.com/command", true);
         xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhttp.send('{"command":'+ JSON.stringify(command)+'}');
     }
