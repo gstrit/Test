@@ -18,7 +18,8 @@ exports.actions = function(app, options, repository) {
     app.get('/allPlayers.json', function(req, res) { 
         playerRepo.find(function(err, players) {
             if (err) res.json({});
-                
+            
+            res.setHeader('Cache-Control', 'max-age=1');
             res.json(players);
         });
     });
