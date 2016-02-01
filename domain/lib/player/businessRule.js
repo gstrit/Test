@@ -24,7 +24,7 @@ module.exports = require('cqrs-domain').defineBusinessRule({
 //             if(players.length > 0)
 //                 return callback(new Error());
 //             else
-//                 callback(null);
+                 callback(null);
 //         });
 //     }
 //   );  
